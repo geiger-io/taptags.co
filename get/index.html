@@ -16,24 +16,29 @@
   <h1>Get TapTags</h1>
   <p class="lede">Choose your phone to open the right store.</p>
   <div class="stores">
-    <a class="store-btn" id="ios-btn" href="/ios">
-      <span>Download on the<br><strong>App Store</strong></span>
+    <a class="store-btn" id="ios-btn" data-store="ios" href="/ios">
+      <img class="badge-img" src="/assets/img/badges/app-store-badge.svg" alt="Download on the App Store">
     </a>
-    <a class="store-btn secondary" id="android-btn" href="/android">
-      <span>Get it on<br><strong>Google Play</strong></span>
+    <a class="store-btn secondary" id="android-btn" data-store="android" href="/android">
+      <img class="badge-img" src="/assets/img/badges/google-play-badge.png" alt="Get it on Google Play">
     </a>
   </div>
   <p class="note">We will send you straight to the right store if we can detect your phone.</p>
 </div>
 
+<script src="/assets/store-buttons.js"></script>
 <script>
 (function () {
   var ua = (navigator.userAgent || "") + (navigator.vendor || "");
   var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
   var isAndroid = /Android/.test(ua);
-  if (isIOS) {
+  // Only redirect straight through when the platform has a real store link.
+  // With STORE_LINKS.ios set to null, iPhone visitors stay on this page and
+  // see the "Coming soon" state applied by store-buttons.js instead of
+  // being sent towards a dummy App Store URL.
+  if (isIOS && STORE_LINKS.ios) {
     window.location.replace("/ios");
-  } else if (isAndroid) {
+  } else if (isAndroid && STORE_LINKS.android) {
     window.location.replace("/android");
   }
 })();

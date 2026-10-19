@@ -15,14 +15,16 @@
   <h1>Page not found</h1>
   <p class="lede">That page does not exist. Here is what you might be looking for.</p>
   <div class="stores">
-    <a class="store-btn" href="/ios">
-      <span>Download on the<br><strong>App Store</strong></span>
+    <a class="store-btn" data-store="ios" href="/ios">
+      <img class="badge-img" src="/assets/img/badges/app-store-badge.svg" alt="Download on the App Store">
     </a>
-    <a class="store-btn secondary" href="/android">
-      <span>Get it on<br><strong>Google Play</strong></span>
+    <a class="store-btn secondary" data-store="android" href="/android">
+      <img class="badge-img" src="/assets/img/badges/google-play-badge.png" alt="Get it on Google Play">
     </a>
   </div>
   <p class="note"><a href="/">Back to the TapTags homepage</a></p>
 </div>
+<script src="/assets/stores.js"></script>
+<script src="/assets/store-buttons.js"></script>
 </body>
 </html>

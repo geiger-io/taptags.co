@@ -8,9 +8,11 @@
  * android/index.html too.
  */
 var STORE_LINKS = {
-  // PLACEHOLDER: the App Store listing does not exist yet. Replace with the
-  // real App Store URL (e.g. https://apps.apple.com/app/idXXXXXXXXXX) once
-  // App Store Connect assigns the app its ID.
-  ios: "https://apps.apple.com/app/id0000000000",
+  // The App Store listing does not exist yet. Leave this null so every App
+  // Store button and the /ios page show a "Coming soon" state instead of a
+  // dummy link (see assets/store-buttons.js). Replace with the real App
+  // Store URL (e.g. https://apps.apple.com/app/idXXXXXXXXXX) once App Store
+  // Connect assigns the app its ID.
+  ios: null,
   android: "https://play.google.com/store/apps/details?id=com.taptags.app"
 };

@@ -10,26 +10,36 @@
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/stores.js"></script>
 <script>
-  // Insert the meta refresh before the page paints, using the single
-  // store-links config file as the source of the URL.
-  document.write('<meta http-equiv="refresh" content="0;url=' + STORE_LINKS.ios + '">');
+  // Only insert the meta refresh when a real App Store URL exists. With
+  // STORE_LINKS.ios set to null (no listing yet), this page stays put and
+  // shows the "Coming soon" message below instead of redirecting.
+  if (STORE_LINKS.ios) {
+    document.write('<meta http-equiv="refresh" content="0;url=' + STORE_LINKS.ios + '">');
+  }
 </script>
 </head>
 <body>
 <div class="get">
   <img class="icon" src="/assets/img/icon-512.png" alt="TapTags">
-  <h1>Opening the App Store</h1>
-  <p class="lede">Taking you to TapTags on the App Store.</p>
+  <h1 id="ios-heading">Opening the App Store</h1>
+  <p class="lede" id="ios-lede">Taking you to TapTags on the App Store.</p>
   <p class="stores">
-    <a class="store-btn" id="ios-link" href="#">Tap here if you are not redirected</a>
+    <a class="store-btn" id="ios-link" data-store="ios" href="#">Tap here if you are not redirected</a>
   </p>
 </div>
+<script src="/assets/store-buttons.js"></script>
 <script>
-  document.getElementById("ios-link").href = STORE_LINKS.ios;
+  if (STORE_LINKS.ios) {
+    document.getElementById("ios-link").href = STORE_LINKS.ios;
+  } else {
+    document.getElementById("ios-heading").textContent = "Coming soon to the App Store";
+    document.getElementById("ios-lede").textContent = "TapTags is not on the App Store yet. Check back soon, or get it on Google Play in the meantime.";
+  }
 </script>
 <noscript>
-  <!-- Keep this href in sync with STORE_LINKS.ios in assets/stores.js -->
-  <p><a href="https://apps.apple.com/app/id0000000000">Continue to the App Store</a></p>
+  <!-- TapTags is not on the App Store yet (STORE_LINKS.ios is null). Do not
+       add a link here until a real App Store URL exists in assets/stores.js. -->
+  <p>TapTags is not on the App Store yet. Check back soon.</p>
 </noscript>
 </body>
 </html>

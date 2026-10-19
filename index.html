@@ -18,7 +18,7 @@
   <div class="wrap">
     <a class="brand" href="/"><img src="/assets/img/icon-512.png" alt=""><span>TapTags</span></a>
     <nav class="nav">
-      <a href="/#how">How it works</a>
+      <a href="/#how"><span class="nav-full">How it works</span><span class="nav-short">How</span></a>
       <a href="/support">Support</a>
       <a href="/privacy">Privacy</a>
     </nav>
@@ -33,16 +33,19 @@
         <h1>Share your number with a tap</h1>
         <p class="lede">Program an NFC tag with your phone number. Anyone who taps their phone to your tag can call you instantly, no app required for them.</p>
         <div class="stores">
-          <a class="store-btn" href="/ios">
-            <span>Download on the<br><strong>App Store</strong></span>
+          <a class="store-btn" data-store="ios" href="/ios">
+            <img class="badge-img" src="/assets/img/badges/app-store-badge.svg" alt="Download on the App Store">
           </a>
-          <a class="store-btn secondary" href="/android">
-            <span>Get it on<br><strong>Google Play</strong></span>
+          <a class="store-btn secondary" data-store="android" href="/android">
+            <img class="badge-img" src="/assets/img/badges/google-play-badge.png" alt="Get it on Google Play">
           </a>
         </div>
       </div>
       <div class="hero-shot">
-        <img src="/assets/img/01-share-with-a-tap.jpg" alt="TapTags app screen showing a tag being shared with a tap" width="380" height="760">
+        <!-- Product photo coming soon. Drop in assets/img/hero.webp (or
+             hero.png) for desktop and assets/img/hero-mobile.webp (or
+             hero-mobile.png) for mobile, matching this slot. -->
+        <div class="hero-placeholder" aria-hidden="true">Product photo coming soon</div>
       </div>
     </div>
   </section>
@@ -124,11 +127,11 @@
     <div class="wrap">
       <h2>Get TapTags</h2>
       <div class="stores">
-        <a class="store-btn" href="/ios">
-          <span>Download on the<br><strong>App Store</strong></span>
+        <a class="store-btn" data-store="ios" href="/ios">
+          <img class="badge-img" src="/assets/img/badges/app-store-badge.svg" alt="Download on the App Store">
         </a>
-        <a class="store-btn secondary" href="/android">
-          <span>Get it on<br><strong>Google Play</strong></span>
+        <a class="store-btn secondary" data-store="android" href="/android">
+          <img class="badge-img" src="/assets/img/badges/google-play-badge.png" alt="Get it on Google Play">
         </a>
       </div>
     </div>
@@ -144,5 +147,7 @@
     </span>
   </div>
 </footer>
+<script src="/assets/stores.js"></script>
+<script src="/assets/store-buttons.js"></script>
 </body>
 </html>
