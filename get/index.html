@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get TapTags</title>
+<meta name="description" content="Get the TapTags app for your phone.">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/stores.js"></script>
+</head>
+<body>
+<div class="get">
+  <img class="icon" src="/assets/img/icon-512.png" alt="TapTags">
+  <h1>Get TapTags</h1>
+  <p class="lede">Choose your phone to open the right store.</p>
+  <div class="stores">
+    <a class="store-btn" id="ios-btn" href="/ios">
+      <span>Download on the<br><strong>App Store</strong></span>
+    </a>
+    <a class="store-btn secondary" id="android-btn" href="/android">
+      <span>Get it on<br><strong>Google Play</strong></span>
+    </a>
+  </div>
+  <p class="note">We will send you straight to the right store if we can detect your phone.</p>
+</div>
+
+<script>
+(function () {
+  var ua = (navigator.userAgent || "") + (navigator.vendor || "");
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var isAndroid = /Android/.test(ua);
+  if (isIOS) {
+    window.location.replace("/ios");
+  } else if (isAndroid) {
+    window.location.replace("/android");
+  }
+})();
+</script>
+<noscript>
+  <p>Choose your store above to download TapTags.</p>
+</noscript>
+</body>
+</html>

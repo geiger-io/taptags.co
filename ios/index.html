@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening the App Store</title>
+<meta name="description" content="Redirecting to the TapTags App Store listing.">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/stores.js"></script>
+<script>
+  // Insert the meta refresh before the page paints, using the single
+  // store-links config file as the source of the URL.
+  document.write('<meta http-equiv="refresh" content="0;url=' + STORE_LINKS.ios + '">');
+</script>
+</head>
+<body>
+<div class="get">
+  <img class="icon" src="/assets/img/icon-512.png" alt="TapTags">
+  <h1>Opening the App Store</h1>
+  <p class="lede">Taking you to TapTags on the App Store.</p>
+  <p class="stores">
+    <a class="store-btn" id="ios-link" href="#">Tap here if you are not redirected</a>
+  </p>
+</div>
+<script>
+  document.getElementById("ios-link").href = STORE_LINKS.ios;
+</script>
+<noscript>
+  <!-- Keep this href in sync with STORE_LINKS.ios in assets/stores.js -->
+  <p><a href="https://apps.apple.com/app/id0000000000">Continue to the App Store</a></p>
+</noscript>
+</body>
+</html>
