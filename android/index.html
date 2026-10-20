@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening Google Play</title>
+<meta name="description" content="Redirecting to the TapTags Google Play listing.">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/stores.js"></script>
+<script>
+  // Insert the meta refresh before the page paints, using the single
+  // store-links config file as the source of the URL.
+  document.write('<meta http-equiv="refresh" content="0;url=' + STORE_LINKS.android + '">');
+</script>
+</head>
+<body>
+<div class="get">
+  <img class="icon" src="/assets/img/icon-512.png" alt="TapTags">
+  <h1>Opening Google Play</h1>
+  <p class="lede">Taking you to TapTags on Google Play.</p>
+  <p class="stores">
+    <a class="store-btn secondary" id="android-link" data-store="android" href="#">Tap here if you are not redirected</a>
+  </p>
+</div>
+<script>
+  document.getElementById("android-link").href = STORE_LINKS.android;
+</script>
+<noscript>
+  <!-- Keep this href in sync with STORE_LINKS.android in assets/stores.js -->
+  <p><a href="https://play.google.com/store/apps/details?id=com.taptags.app">Continue to Google Play</a></p>
+</noscript>
+</body>
+</html>

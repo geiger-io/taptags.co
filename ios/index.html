@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening the App Store</title>
+<meta name="description" content="Redirecting to the TapTags App Store listing.">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/stores.js"></script>
+<script>
+  // Only insert the meta refresh when a real App Store URL exists. With
+  // STORE_LINKS.ios set to null (no listing yet), this page stays put and
+  // shows the "Coming soon" message below instead of redirecting.
+  if (STORE_LINKS.ios) {
+    document.write('<meta http-equiv="refresh" content="0;url=' + STORE_LINKS.ios + '">');
+  }
+</script>
+</head>
+<body>
+<div class="get">
+  <img class="icon" src="/assets/img/icon-512.png" alt="TapTags">
+  <h1 id="ios-heading">Opening the App Store</h1>
+  <p class="lede" id="ios-lede">Taking you to TapTags on the App Store.</p>
+  <p class="stores">
+    <a class="store-btn" id="ios-link" data-store="ios" href="#">Tap here if you are not redirected</a>
+  </p>
+</div>
+<script src="/assets/store-buttons.js"></script>
+<script>
+  if (STORE_LINKS.ios) {
+    document.getElementById("ios-link").href = STORE_LINKS.ios;
+  } else {
+    document.getElementById("ios-heading").textContent = "Coming soon to the App Store";
+    document.getElementById("ios-lede").textContent = "TapTags is not on the App Store yet. Check back soon, or get it on Google Play in the meantime.";
+  }
+</script>
+<noscript>
+  <!-- TapTags is not on the App Store yet (STORE_LINKS.ios is null). Do not
+       add a link here until a real App Store URL exists in assets/stores.js. -->
+  <p>TapTags is not on the App Store yet. Check back soon.</p>
+</noscript>
+</body>
+</html>
